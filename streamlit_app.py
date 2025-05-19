@@ -22,7 +22,11 @@ def load_data():
 df = load_data()
 
 st.title(":hospital: Diabetes Prediction Dashboard")
-st.write("Explore and analyze the diabetes prediction dataset.")
+st.markdown("---")  # a horizontal line separator
+
+st.markdown("**Created by Abey Saji Kurian - Student Id MIF240019**")
+
+st.write("Analyze the diabetes prediction dataset.")
 
 st.header("📊 About the Dataset")
 st.write(f"""
