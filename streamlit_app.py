@@ -278,5 +278,5 @@ fig_pca = px.scatter(
 st.plotly_chart(fig_pca, use_container_width=True)
 
 # Display filtered dataset
-st.subheader("🔍 Filtered Dataset")
+st.subheader("🔍 Filtered  Dataset")
 st.dataframe(filtered_df)
