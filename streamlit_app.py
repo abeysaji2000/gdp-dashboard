@@ -19,12 +19,7 @@ def load_data():
     dataset_path = "data/diabetes_prediction_dataset.csv"
 
     
-    if not os.path.exists(dataset_path):
-        os.makedirs("data", exist_ok=True)
-        api = KaggleApi()
-        api.authenticate()
-        api.dataset_download_files('iammustafatz/diabetes-prediction-dataset', path='data/', unzip=True)
-    
+  
     df = pd.read_csv(dataset_path)
     return df
 
