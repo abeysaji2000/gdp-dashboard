@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+import numpy as np
 
 # Set page title and layout
 st.set_page_config(
@@ -236,9 +239,6 @@ fig_heatmap = px.imshow(
     title="Correlation Heatmap"
 )
 st.plotly_chart(fig_heatmap, use_container_width=True)
-from sklearn.decomposition import PCA
-from sklearn.preprocessing import StandardScaler
-import numpy as np
 
 # Select numeric features for PCA
 numeric_features = ['age', 'hypertension', 'heart_disease', 'bmi', 'HbA1c_level', 'blood_glucose_level']
