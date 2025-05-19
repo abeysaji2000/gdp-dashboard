@@ -27,7 +27,7 @@ This dataset is sourced from Kaggle and focuses on predicting diabetes based on 
 It contains information about patients, including their age, gender, medical history, and lifestyle factors.
 
 ### **Dataset Details**
-- **Source:** Kaggle (`iammustafatz/diabetes-prediction-dataset`)
+- **Source:** Kaggle 
 - **Number of Records:** {df.shape[0]:,}
 - **Number of Features:** {df.shape[1]:,}
 - **Goal:** Predict the likelihood of diabetes based on health indicators.
@@ -56,7 +56,7 @@ age_min, age_max = st.sidebar.slider(
     "Select Age Range", 
     int(df["age"].min()), 
     int(df["age"].max()), 
-    (20, 50)
+    (40, 50)
 )
 
 selected_genders = st.sidebar.multiselect(
