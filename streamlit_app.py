@@ -22,13 +22,11 @@ def load_data():
 df = load_data()
 
 st.title(":hospital: Diabetes Prediction Dashboard")
-st.markdown("---")  # a horizontal line separator
 
-st.markdown("**Created by Abey Saji Kurian - Student Id MIF240019**")
 
 st.write("Analyze the diabetes prediction dataset.")
 
-st.header("📊 About the Dataset")
+st.header("📊 About the Dataset ")
 st.write(f"""
 This dataset is sourced from Kaggle and focuses on predicting diabetes based on various health indicators.
 It contains information about patients, including their age, gender, medical history, and lifestyle factors.
@@ -284,3 +282,4 @@ st.plotly_chart(fig_pca, use_container_width=True)
 # Display filtered dataset
 st.subheader("🔍 Filtered  Dataset")
 st.dataframe(filtered_df)
+st.markdown("**Created by Abey Saji Kurian - Student Id MIF240019**")
