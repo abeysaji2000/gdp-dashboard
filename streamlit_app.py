@@ -236,6 +236,46 @@ fig_heatmap = px.imshow(
     title="Correlation Heatmap"
 )
 st.plotly_chart(fig_heatmap, use_container_width=True)
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+import numpy as np
+
+# Select numeric features for PCA
+numeric_features = ['age', 'hypertension', 'heart_disease', 'bmi', 'HbA1c_level', 'blood_glucose_level']
+
+# Standardize data before PCA
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(filtered_df[numeric_features])
+
+# Apply PCA - 2 components
+pca = PCA(n_components=2)
+components = pca.fit_transform(X_scaled)
+
+# Create a DataFrame with PCA results
+pca_df = pd.DataFrame(data=components, columns=['PC1', 'PC2'])
+pca_df['diabetes'] = filtered_df['diabetes'].values
+pca_df['gender'] = filtered_df['gender'].values
+
+# Explained variance
+explained_var = pca.explained_variance_ratio_ * 100
+
+st.subheader("🔍 PCA: Principal Component Analysis")
+
+st.write(f"Explained variance by PC1: {explained_var[0]:.2f}%, PC2: {explained_var[1]:.2f}%")
+
+# Plot PCA scatter plot
+fig_pca = px.scatter(
+    pca_df,
+    x='PC1',
+    y='PC2',
+    color='diabetes',
+    symbol='gender',
+    title='PCA - First Two Components',
+    labels={'PC1': f'PC1 ({explained_var[0]:.2f}%)', 'PC2': f'PC2 ({explained_var[1]:.2f}%)'},
+    opacity=0.7
+)
+
+st.plotly_chart(fig_pca, use_container_width=True)
 
 # Display filtered dataset
 st.subheader("🔍 Filtered Dataset")
